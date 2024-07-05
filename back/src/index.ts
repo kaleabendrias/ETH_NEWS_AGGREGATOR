@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,6 +10,7 @@ connectDb();
 
 // parses incoming requests with JSON payloads and is based on body-parser
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json("hello, this is entry of backend");
