@@ -4,9 +4,11 @@ services:
       context: ../front
       dockerfile: DockerFile
     ports:
-      - "5173:5173"
+      - "80:80"
     depends_on:
       - backend
+    networks:
+      - app-network
   backend:
     build:
       context: ../back
@@ -17,6 +19,8 @@ services:
       - "3000:3000"
     depends_on:
       - mongo
+    networks:
+      - app-network
   mongo:
     image: mongo:6
     ports:
@@ -33,5 +37,11 @@ services:
     depends_on:
       - frontend
       - backend
+    networks:
+      - app-network
 volumes:
   mongo-data: {}
+
+networks:
+  app-network:
+    driver: bridge
