@@ -18,7 +18,7 @@ export function NewsGrid() {
     const fetchNews = async () => {
       try {
         setLoading(true)
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/news`)
+        const res = await fetch("/api/news")
         if (!res.ok) throw new Error("Failed to fetch news")
 
         const data: Article[] = await res.json() // tell TS the type
