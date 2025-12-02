@@ -1,8 +1,8 @@
 services:
   frontend:
     build:
-      context: ../front
-      dockerfile: DockerFile
+      context: ../
+      dockerfile: front/DockerFile
     ports:
       - "80:80"
     depends_on:
