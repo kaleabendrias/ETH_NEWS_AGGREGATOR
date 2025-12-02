@@ -2,7 +2,7 @@ services:
   frontend:
     build:
       context: ../front
-      dockerfile: ./front/DockerFile
+      dockerfile: DockerFile
     ports:
       - "5173:5173"
     depends_on:
@@ -10,7 +10,7 @@ services:
   backend:
     build:
       context: ../back
-      dockerfile: ./back/DockerFile
+      dockerfile: DockerFile
     env_file:
       - ../deploy/env/back.env
     ports:
